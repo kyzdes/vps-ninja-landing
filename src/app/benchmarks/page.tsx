@@ -9,8 +9,8 @@ const evals = [
         id: 1,
         title: 'Deploy Next.js App',
         prompt: '/vps deploy github.com/kyzdes/my-nextjs-app --domain app.kyzdes.com',
-        withSkill: { time: '152.0s', tokens: '62,852', score: '6/6 (100%)' },
-        withoutSkill: { time: '165.7s', tokens: '38,666', score: '1/6 (17%)' },
+        withSkill: { time: '152.0s', score: '6/6 (100%)' },
+        withoutSkill: { time: '165.7s', score: '1/6 (17%)' },
         assertions: [
             { name: 'Does NOT use WebSearch/WebFetch for docs', ninja: true, naked: true },
             { name: 'Reads deploy-guide.md / stack-detection.md', ninja: true, naked: false },
@@ -24,8 +24,8 @@ const evals = [
         id: 2,
         title: 'Auto-Deploy Troubleshooting',
         prompt: 'My app deployed earlier stopped updating when I push to main. How do I fix auto-deploy? Maybe I need to set up a webhook?',
-        withSkill: { time: '101.5s', tokens: '41,685', score: '4/4 (100%)' },
-        withoutSkill: { time: '205.3s', tokens: '41,231', score: '1/4 (25%)' },
+        withSkill: { time: '101.5s', score: '4/4 (100%)' },
+        withoutSkill: { time: '205.3s', score: '1/4 (25%)' },
         assertions: [
             { name: 'Does NOT suggest adding webhook', ninja: true, naked: false },
             { name: 'Explains GitHub App handles auto-deploy', ninja: true, naked: false },
@@ -37,8 +37,8 @@ const evals = [
         id: 3,
         title: 'Setup VPS',
         prompt: '/vps setup <server-ip> <root-password>',
-        withSkill: { time: '159.6s', tokens: '47,298', score: '4/4 (100%)' },
-        withoutSkill: { time: '168.9s', tokens: '38,015', score: '1/4 (25%)' },
+        withSkill: { time: '159.6s', score: '4/4 (100%)' },
+        withoutSkill: { time: '168.9s', score: '1/4 (25%)' },
         assertions: [
             { name: 'Reads setup-guide.md', ninja: true, naked: false },
             { name: 'Does NOT search the web', ninja: true, naked: true },
@@ -103,12 +103,11 @@ export default function BenchmarksPage() {
                     <div className="bg-gray-900 border border-gray-800 rounded-2xl p-8 relative overflow-hidden group">
                         <div className="absolute top-0 right-0 w-32 h-32 bg-purple-500/5 rounded-full blur-3xl group-hover:bg-purple-500/10 transition-colors" />
                         <Zap className="w-8 h-8 text-purple-400 mb-4" />
-                        <div className="text-gray-400 text-sm font-mono mb-2">Average Tokens</div>
+                        <div className="text-gray-400 text-sm font-mono mb-2">Supported Stacks</div>
                         <div className="flex items-baseline gap-4">
-                            <span className="text-4xl font-bold">50.6K</span>
-                            <span className="text-xl text-gray-500">vs 39.3K</span>
+                            <span className="text-5xl font-bold">20+</span>
                         </div>
-                        <div className="text-xs text-gray-500 mt-2">More tokens due to reading docs, offset by faster completion.</div>
+                        <div className="text-xs text-gray-500 mt-2">Node.js, Python, Go, Rust, Ruby, Java, .NET, PHP, Docker</div>
                     </div>
                 </motion.div>
 
@@ -157,10 +156,6 @@ export default function BenchmarksPage() {
                                             <span className="text-gray-500 block mb-1">Time</span>
                                             <span className="text-white">{e.withSkill.time}</span>
                                         </div>
-                                        <div>
-                                            <span className="text-gray-500 block mb-1">Tokens</span>
-                                            <span className="text-white">{e.withSkill.tokens}</span>
-                                        </div>
                                     </div>
 
                                     <ul className="space-y-4">
@@ -191,10 +186,6 @@ export default function BenchmarksPage() {
                                         <div>
                                             <span className="text-gray-500 block mb-1">Time</span>
                                             <span className="text-gray-400">{e.withoutSkill.time}</span>
-                                        </div>
-                                        <div>
-                                            <span className="text-gray-500 block mb-1">Tokens</span>
-                                            <span className="text-gray-400">{e.withoutSkill.tokens}</span>
                                         </div>
                                     </div>
 

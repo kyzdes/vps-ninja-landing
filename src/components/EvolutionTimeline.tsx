@@ -10,7 +10,7 @@ const milestones = [
     {
         version: 'v1',
         title: 'Initial Release',
-        description: 'Basic deploy and DB management. Claude often "googled" Dokploy docs, wasting tokens and finding outdated versions.',
+        description: 'Basic deploy and DB management. Claude often "googled" Dokploy docs, finding outdated versions and hallucinating endpoints.',
         color: 'border-gray-600',
         iconColor: 'bg-gray-600',
         textColor: 'text-gray-400',

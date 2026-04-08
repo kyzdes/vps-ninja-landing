@@ -94,7 +94,7 @@ export function BenchmarksSection() {
                             <ul className="text-sm text-gray-500 space-y-3 mt-8">
                                 <li className="flex items-start gap-2">
                                     <span className="text-red-500 mt-0.5">✗</span>
-                                    Googles API docs wasting tokens
+                                    Googles outdated API docs
                                 </li>
                                 <li className="flex items-start gap-2">
                                     <span className="text-red-500 mt-0.5">✗</span>
